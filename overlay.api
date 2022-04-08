@@ -1,0 +1,39 @@
+// TODO: llama
+type (
+	ShowRequest  struct{}
+	ShowResponse {
+		Expedition ExpeditionResponse `json:"expedition"`
+		Sector     SectorResponse     `json:"sector"`
+	}
+
+	GetExpeditionRequest    struct{}
+	UpdateExpeditionRequest {
+		ID string `json:"id"`
+	}
+	ExpeditionResponse {
+		ID   string `json:"id"`
+		Name string `json:"name"`
+	}
+
+	GetSectorRequest    struct{}
+	UpdateSectorRequest {
+		Name string `json:"name"`
+	}
+	SectorResponse {
+		Name string `json:"name,options=Main|Secondary|Overload|Prisoner Efficiency"`
+	}
+)
+
+service overlay-api {
+	//	get /greet/from/:name(Request) returns (Response)
+	@handler ShowAllHandler
+	get /api/v1/overlay(ShowRequest) returns (ShowResponse)
+	@handler GetExpeditionHandler
+	get /api/v1/overlay/expedition(GetExpeditionRequest) returns (ExpeditionResponse)
+	@handler UpdateExpeditionHandler
+	put /api/v1/overlay/expedition(UpdateExpeditionRequest) returns (ExpeditionResponse)
+	@handler GetSectorHandler
+	get /api/v1/overlay/sector(GetSectorRequest) returns (SectorResponse)
+	@handler UpdateSectorHandler
+	put /api/v1/overlay/sector(UpdateSectorRequest) returns (SectorResponse)
+}
