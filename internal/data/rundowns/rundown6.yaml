@@ -1,0 +1,199 @@
+id: 6
+name: Destination
+expeditions:
+  - id: A1
+    name: Artifact 7
+    depth: 608
+    extended: false
+    intel: |
+      Uncoupled system identified and located.
+      Prisoners sent to collect Matter Wave Projector.
+    interrupted_communications: |
+      >.. Walk soft.  Flashlights off.  EVERYTHING ALERTS THESE BASTARDS.
+      >.. We got to carry it back.
+      >.. I'm not touching it.
+      >.. Just grab the other-
+    sectors:
+      - name: High
+        objectives:
+          - kind: Retrieve Item
+  - id: B1
+    name: Hexahedrons
+    depth: 789
+    extended: false
+    intel: |
+      Locate terminal in Alpha Two and extract Data Cube coordinates.
+      Exotic environmental conditions.
+    interrupted_communications: |
+      >.. What the hell is this place?
+      >.. Are we alright to breath this stuff?
+      >.. AH SHIT, LOOK UP!
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: INTERPRET_NAV_DATA
+              - key: CommandDescription
+                value: Downloads navigation data
+  - id: B2
+    name: Contaminant
+    depth: 752
+    extended: false
+    intel: |
+      Conduit genetic code compromised.  New DNA code required: Prisoners sent to locate HSU unit in order to retrieve DNA sample.
+    interrupted_communications: |
+      >.. I'm not going into that shit.  I don't feel right...
+      >.. IT JUST GOT A LOT MORE FUCKING INTENSE.
+      >.. Let's not wait around.  Scan the thing.
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Retrieve HSU
+      - name: Secondary
+        objectives:
+          - kind: Establish Uplink
+  - id: C1
+    name: Navigation
+    depth: 986
+    extended: false
+    intel: |
+      Used extracted coordinates to retrieve 3 Data Cubes.
+      Deviating evergy readings detected in the related sector.
+    interrupted_communications: |
+      >.. I'm not touching the next one.  YOU DO IT.
+      >.. This whole place feels like it wants me dead.
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Gather Items
+  - id: C2
+    name: Blind
+    depth: 1053
+    extended: false
+    intel: |
+      Translocation power requirements not met.  Activation of auxiliary generators necessary.
+      Severe environmental conditions anticipated.
+    interrupted_communications: |
+      >.. Move! Move!
+      >.. I can't see where we're going!
+      >.. There's more coming out of it!  WE GOTTA GET AWAY FROM THIS FUCKING THING!
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Activate Generator Cluster
+      - name: Secondary
+        objectives:
+          - kind: Retrieve Item
+  - id: C3
+    name: Pressure Point
+    depth: 1194
+    extended: false
+    intel: |
+      Prisoners will act as decoy for undisclosed parallel objective.
+      Surviving prisoners will return for extraction once undisclosed objective has been completed.
+    interrupted_communications: |
+      >.. Christ don't these bastards ever let up?
+      >.. Conserve your ammo!
+      >.. FUCK THAT!  I'M USING EVERYTHING I GOT!
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Survive Warden Protocol
+      - name: Secondary
+        objectives:
+          - kind: Activate Generator Cluster
+      - name: Overload
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: SCP_ZONE_PURGE
+              - key: CommandDescription
+                value: Initiate purge of connecting drainage areas
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: D1
+    name: Nemesis
+    depth: 1080
+    extended: false
+    intel: |
+      Waypoint data confirmed.  Primary Restoration Initiative has commenced.
+      Dispatch prisoners to secure Pathogen Genome Database.
+    interrupted_communications: |
+      >.. What's that?  Is that a...
+      >.. Tha.. that's not possible!
+      >.. >WE SHOULDN'T BE HERE
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: COPY_GEN_INDEX_COMPLETE_DB
+              - key: CommandDescription
+                value: ""
+  - id: D2
+    name: Crossways
+    depth: 1249
+    extended: false
+    intel: |
+      Retrieve PGD decryption keys from multiple terminals.
+      Conditions unknown.
+    interrupted_communications: |
+      >.. JUST GET THE DATA!  I can't wait to get out of here...
+      >.. Yeah, but what's between us and the exit?  Huh?
+      >.. Can't be worse than this!
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Gather Items
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: EXTRACT_DECRYPTION_KEY
+              - key: CommandDescription
+                value: Extract decryption key on local system and transfer to portable unit
+      - name: Secondary
+        objectives:
+          - kind: Establish Uplink
+  - id: D3
+    name: Power Hungry
+    depth: 1221
+    extended: false
+    intel: |
+      Additional power needed for data decryption.
+      Quadrant reactor requires start-up.
+    interrupted_communications: |
+      >.. Man!  We're between a rock... AND A FUCKED UP PLACE!
+      >.. What if we split up?
+      >.. I don't like it... but let's do it.
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Reactor Startup
+      - name: Secondary
+        objectives:
+          - kind: Gather Items
+      - name: Overload
+        objectives:
+          - kind: Reactor Shutdown
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: D4
+    name: Cryptomnesia
+    depth: 1314
+    extended: false
+    intel: |
+      Prisoners sent to retrieve Tampered Data Cube from Insight labs.
+      Deviating energy readings detected.
+      Very low prisoner survival rate expected.
+    interrupted_communications: |
+      >.. Not again.
+      >.. Hang on a sec... SOMETHING'S DIFFERENT.
+      >.. You're saying we're not gonna die?  Has that fucking changed?
+    sectors:
+      - name: Main
+        objectives:
+          - kind: Retrieve Item

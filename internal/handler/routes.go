@@ -23,7 +23,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: GetExpeditionHandler(serverCtx),
 			},
 			{
-				Method:  http.MethodPut,
+				Method:  http.MethodPost,
 				Path:    "/api/v1/overlay/expedition",
 				Handler: UpdateExpeditionHandler(serverCtx),
 			},
@@ -33,7 +33,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: GetSectorHandler(serverCtx),
 			},
 			{
-				Method:  http.MethodPut,
+				Method:  http.MethodPost,
 				Path:    "/api/v1/overlay/sector",
 				Handler: UpdateSectorHandler(serverCtx),
 			},

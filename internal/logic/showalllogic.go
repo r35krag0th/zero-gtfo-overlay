@@ -3,6 +3,7 @@ package logic
 import (
 	"context"
 
+	"github.com/r35krag0th/zero-gtfo-overlay/internal/data"
 	"github.com/r35krag0th/zero-gtfo-overlay/internal/svc"
 	"github.com/r35krag0th/zero-gtfo-overlay/internal/types"
 
@@ -24,7 +25,13 @@ func NewShowAllLogic(ctx context.Context, svcCtx *svc.ServiceContext) *ShowAllLo
 }
 
 func (l *ShowAllLogic) ShowAll(req *types.ShowRequest) (resp *types.ShowResponse, err error) {
-	// todo: add your logic here and delete this line
+	overlayData, err := data.GetOverlayData(l.svcCtx.ConsulClient)
+	if err != nil {
+		return nil, err
+	}
 
-	return
+	return &types.ShowResponse{
+		Expedition: overlayData.Expedition,
+		Sector:     types.SectorResponse{Name: overlayData.Sector},
+	}, nil
 }

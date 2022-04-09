@@ -4,3 +4,4 @@ Port: 8888
 Consul:
   Scheme: https
   Address: consul.lan.r35.net
+CurrentRundown: "6"

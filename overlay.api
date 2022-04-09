@@ -20,7 +20,7 @@ type (
 		Name string `json:"name"`
 	}
 	SectorResponse {
-		Name string `json:"name,options=Main|Secondary|Overload|Prisoner Efficiency"`
+		Name string `json:"name"`
 	}
 )
 
@@ -31,9 +31,9 @@ service overlay-api {
 	@handler GetExpeditionHandler
 	get /api/v1/overlay/expedition(GetExpeditionRequest) returns (ExpeditionResponse)
 	@handler UpdateExpeditionHandler
-	put /api/v1/overlay/expedition(UpdateExpeditionRequest) returns (ExpeditionResponse)
+	post /api/v1/overlay/expedition(UpdateExpeditionRequest) returns (ExpeditionResponse)
 	@handler GetSectorHandler
 	get /api/v1/overlay/sector(GetSectorRequest) returns (SectorResponse)
 	@handler UpdateSectorHandler
-	put /api/v1/overlay/sector(UpdateSectorRequest) returns (SectorResponse)
+	post /api/v1/overlay/sector(UpdateSectorRequest) returns (SectorResponse)
 }

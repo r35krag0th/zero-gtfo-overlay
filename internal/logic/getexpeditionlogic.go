@@ -3,6 +3,7 @@ package logic
 import (
 	"context"
 
+	"github.com/r35krag0th/zero-gtfo-overlay/internal/data"
 	"github.com/r35krag0th/zero-gtfo-overlay/internal/svc"
 	"github.com/r35krag0th/zero-gtfo-overlay/internal/types"
 
@@ -24,7 +25,13 @@ func NewGetExpeditionLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Get
 }
 
 func (l *GetExpeditionLogic) GetExpedition(req *types.GetExpeditionRequest) (resp *types.ExpeditionResponse, err error) {
-	// todo: add your logic here and delete this line
+	overlayData, err := data.GetOverlayData(l.svcCtx.ConsulClient)
+	if err != nil {
+		return nil, err
+	}
 
-	return
+	return &types.ExpeditionResponse{
+		ID:   overlayData.Expedition.ID,
+		Name: overlayData.Expedition.Name,
+	}, nil
 }
