@@ -1,7 +1,6 @@
 package svc
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/hashicorp/consul/api"
@@ -29,13 +28,13 @@ func NewServiceContext(c config.Config) *ServiceContext {
 
 	allRundowns := make(map[string]*rundowns.RundownDetails)
 
-	for _, rundownNumber := range rundownsToLoad {
-		details, err := rundowns.LoadRundownDetailsFromYAML(fmt.Sprintf("internal/data/rundowns/rundown%d.yaml", rundownNumber))
+	for _, rundownDataFile := range c.RundownDataFiles {
+		details, err := rundowns.LoadRundownDetailsFromYAML(rundownDataFile)
 		if err != nil {
-			logx.Errorf("failed to load rundown details %d: %v", rundownNumber, err)
+			logx.Errorf("failed to load rundown details %s: %v", rundownDataFile, err)
 			continue
 		}
-		allRundowns[strconv.Itoa(rundownNumber)] = details
+		allRundowns[strconv.Itoa(details.ID)] = details
 	}
 
 	return &ServiceContext{

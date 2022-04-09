@@ -8,5 +8,6 @@ type Config struct {
 		Scheme  string
 		Address string
 	}
-	CurrentRundown string
+	CurrentRundown   string
+	RundownDataFiles []string
 }

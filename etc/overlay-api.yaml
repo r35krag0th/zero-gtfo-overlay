@@ -5,3 +5,6 @@ Consul:
   Scheme: https
   Address: consul.lan.r35.net
 CurrentRundown: "6"
+RundownDataFiles:
+  - etc/rundown5.yaml
+  - etc/rundown6.yaml
