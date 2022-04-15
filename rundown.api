@@ -1,0 +1,81 @@
+syntax = "v1"
+
+type (
+	ExpeditionURLReference {
+		ID   string `json:"id"`
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	}
+	RundownIndexItem {
+		ID          int                      `json:"id"`
+		Name        string                   `json:"name"`
+		Expeditions []ExpeditionURLReference `json:"expeditions"`
+	}
+
+	// GET /api/v1/rundowns
+	ListRundownRequest  struct{}
+	ListRundownResponse {
+		Rundowns []RundownIndexItem `json:"rundowns"`
+	}
+
+	// GET /api/v1/rundowns/:rundown_id
+	ShowRundownRequest {
+		RundownID string `path:"id"`
+	}
+	ShowRundownResponse {
+		ID          string                   `json:"id"`
+		Name        string                   `json:"name"`
+		Expeditions []ShowExpeditionResponse `json:"expeditions"`
+	}
+
+	// GET /api/v1/rundowns/:rundown_id/expeditions
+	ListRundownExpeditionsRequest {
+		RundownID string `path:"rundown_id"`
+	}
+	ListRundownExpeditionsResponse {
+		Expeditions []ExpeditionURLReference `json:"expeditions"`
+	}
+
+	// GET /api/v1/rundowns/:rundown_id/expedition/:expedition_id
+	ShowExpeditionRequest {
+		RundownID    string `path:"rundown_id"`
+		ExpeditionID string `path:"expedition_id"`
+	}
+	ShowExpeditionResponse {
+		ID                        string          `json:"id"`
+		Name                      string          `json:"name"`
+		Depth                     int             `json:"depth"`
+		Intel                     string          `json:"intel"`
+		Extended                  bool            `json:"extended"`
+		InterruptedCommunications string          `json:"interrupted_communications"`
+		Sectors                   []SectorDetails `json:"sectors"`
+	}
+)
+
+type (
+	SectorDetails {
+		Name       string                  `json:"name"`
+		Objectives []SectorObjectiveDetail `json:"objectives"`
+	}
+
+	SectorObjectiveDetail {
+		Kind     string           `json:"kind"`
+		Metadata []SectorMetadata `json:"metadata"`
+	}
+
+	SectorMetadata {
+		Key   string `json:"key"`
+		Value string `json:"value"`
+	}
+)
+
+service rundown-api {
+	@handler listRundowns
+	get /api/v1/rundowns(ListRundownRequest) returns (ListRundownResponse)
+	
+	@handler listExpeditions
+	get /api/v1/rundowns/:rundown_id/expeditions(ListRundownExpeditionsRequest) returns (ListRundownExpeditionsResponse)
+	
+	@handler showExpedition
+	get /api/v1/rundowns/:rundown_id/expeditions/:expedition_id(ShowExpeditionRequest) returns (ShowExpeditionResponse)
+}

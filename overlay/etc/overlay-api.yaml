@@ -1,0 +1,10 @@
+Name: overlay-api
+Host: 0.0.0.0
+Port: 8888
+Consul:
+  Scheme: https
+  Address: consul.lan.r35.net
+CurrentRundown: "6"
+RundownDataFiles:
+  - overlay/etc/rundown5.yaml
+  - overlay/etc/rundown6.yaml

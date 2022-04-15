@@ -1,0 +1,290 @@
+id: 5
+name: Rebirth
+expeditions:
+  - id: A1
+    name: "Floodways"
+    depth: 545
+    extended: false
+    intel: |
+      Floodways in lockdown, override required to allow further reconnaissance.
+      Unknown ceiling dwelling biomass present.  Prisoners failing to exercise caution will not be considered a loss.
+    interrupted_communications: |
+      >...
+      >...[whispering] Crouch, move slowly, don't shine on them with your flashlight...
+      >...[WHISPERING] IT'S PULSATING - DON'T MOVE!
+    sectors:
+      - name: High
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: OVERRIDE_LOCKDOWN
+              - key: CommandDescription
+                value: Overrides lockdown protocol
+      - name: Extreme
+        objectives:
+          - kind: Gather Items
+  - id: A2
+    name: "Recollect"
+    depth: 498
+    extended: false
+    intel: |
+      Prisoners sent to locate and retrieve hisec crate.
+      Unknown ceiling dwelling biomass present.  Prisoners failing to exercise caution will not be considered a loss.
+    interrupted_communications: |
+      >...Wasn't this room empty before?
+      >...I TOLD YOU THOSE BLACK COCOONS WERE BAD NEWS...
+      >...Fuck, I hate this place even more now
+    sectors:
+      - name: High
+        objectives:
+          - kind: Retrieve Item
+      - name: Extreme
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: REROUTE_POWER
+              - key: CommandDescription
+                value: Reroute power coupling to sector that has been powered down.
+      - name: Overload
+        objectives:
+          - kind: Gather Items
+  - id: A3
+    name: Mining
+    depth: 761
+    extended: false
+    intel: |
+      Prisoners sent to extract vital datacores from terminals in disguise.
+      Unknown ceiling dwelling biomass present.  Prisoners failing to exercise caution will not be considered a loss.
+      Air filtration system unstable.
+    interrupted_communications: |
+      >...Good news?  The only thing between us and our way forward is that door
+      >...And the bad news?
+      >...It's protected by a multilevel security system.
+      >...LESS TALK, MORE DIGGING...
+    sectors:
+      - name: High
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: EXTRACT_DATACORE
+              - key: CommandDescription
+                value: Extract data-core on local system and transfer data to portable unit
+      - name: Extreme
+        objectives:
+          - kind: Retrieve HSU
+      - name: Overload
+        objectives:
+          - kind: Distribute Powercells
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: B1
+    name: Smother
+    depth: 702
+    extended: false
+    intel: |
+      Specific DNA sample needed.  Prisoners sent to retrieve HSU with matching tissue quality.
+      Air filtration system unstable.  Prisoners deemed expendable.
+    interrupted_communications: |
+      >...HIT THEM IN THE BACK, EVEN BETTER IF THEY'RE SLEEPING.
+      >...[sudden noise]
+      >...Too late now! Aaargh!
+      >...[commotion, unintelligible]
+    sectors:
+      - name: High
+        objectives:
+          - kind: Retrieve HSU
+      - name: Extreme
+        objectives:
+          - kind: Distribute Power Cells
+      - name: Overload
+        objectives:
+          - kind: Reactor Startup
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: B2
+    name: Discharge
+    depth: 521
+    extended: false
+    intel: |
+      Retrieve specific chemical compounds at any cost of prisoners.
+    interrupted_communications: |
+      >...SPITTERS.
+      >...[long pause]
+      >...[whispering]I hate spitters.
+      >...[sudden blast, commotion]
+    sectors:
+      - name: High
+        objectives:
+          - kind: Gather Items
+      - name: Extreme
+        objectives:
+          - kind: Establish Uplink
+      - name: Overload
+        objectives:
+          - kind: Gather Items
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: B3
+    name: Unseal
+    depth: 784
+    extended: false
+    intel: |
+      The previously acquired hisec crate requires processing.
+      Prisoners sent to locate and operate machinery needed for further treatment of the crate.
+      Roaming hostile creatures present.  Low prisoner survival rate expected.
+    interrupted_communications: |
+      >...They just keep coming!
+      >...FOCUS ON THE OBJECTIVE!  OUR BEST CHANCE OF SURVIVAL IS PUSHING FORWARD!
+    sectors:
+      - name: High
+        objectives:
+          - kind: Process Item
+      - name: Extreme
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: RELEASE_CONTAINMENT
+              - key: CommandDescription
+                value: Opens containment chambers
+  - id: B4
+    name: Diversion
+    depth: 798
+    extended: false
+    intel: |
+      Prisoners expended for diversion to clear adjacent sectors.
+      Local power grid unstable.
+      Diversion party survival probability: Low.
+    interrupted_communications: |
+      >...I'm almost out... and they won't stop coming!
+      >...THE DOOR IS FINALLY UNLOCKED!
+      >...[coughing] Stock up and keep moving!
+    sectors:
+      - name: High
+        objectives:
+          - kind: Survive Warden Protocol
+  - id: C1
+    name: Binary
+    depth: 1004
+    extended: false
+    intel: |
+      Network link required to obtain control over floodways quadrant maintenance systems.
+      Prisoners sent to establish terminal uplink.
+      Low prisoner survival rate expected.
+    interrupted_communications: |
+      >...Shit, we barely survived that, my ammo is-
+      >...[whispering] Schh! Door's opening!
+      >...[gasp]
+    sectors:
+      - name: High
+        objectives:
+          - kind: Establish Uplink
+      - name: Extreme
+        objectives:
+          - kind: Establish Uplink
+  - id: C2
+    name: Access
+    depth: 990
+    extended: false
+    intel: |
+      Essential quadrant systems offline.
+      Prisoners sent to bring back power at any cost, in order to facilitate further exploration.
+    interrupted_communications: |
+      >...What's that, in the darkness?!
+      >...THE- THE DARKNESS... IT'S MOVING!
+      >...[screaming, commotion]
+    sectors:
+      - name: High
+        objectives:
+          - kind: Activate Generator Cluster
+      - name: Extreme
+        objectives:
+          - kind: Reactor Startup
+      - name: Overload
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: OPEN_SECURITY_DOORS
+              - key: CommandDescription
+                value: Opens all security doors to zone 100
+      - name: Prisoner Efficiency
+        objectives: []
+  - id: C3
+    name: Starvation
+    depth: 1109
+    extended: false
+    intel: |
+      Local network disconnected due to powergrid instabilities.  Prisoners sent to reestablish terminal uplink.
+    interrupted_communications: |
+      >...I got no ammo.
+      >...Me neither.
+      >...WE GOTTA RELY ON OUR TOOLS, IT'S OUR ONLY CHANCE!
+    sectors:
+      - name: High
+        objectives:
+          - kind: Establish Uplink
+      - name: Extreme
+        objectives:
+          - kind: Process Item
+  - id: D1
+    name: Even Deeper
+    depth: 842
+    extended: false
+    intel: |
+      Quadrant reactor needs to be shut down so that security systems go offline and grant access to the deeper parts of the structure.
+      Very low prisoner survival rate expected.
+    interrupted_communications: |
+      >...We're shutting every life preserving system down.  Survival here is getting harder by the minute.
+      >...It's like Warden knows we're not coming back to this sublevel ever again...
+      >...THEY'RE GONNA SEND US EVEN DEEPER.
+    sectors:
+      - name: High
+        objectives:
+          - kind: Reactor Shutdown
+      - name: Extreme
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: DEACTIVATE_AIR_FILTRATION
+              - key: CommandDescription
+                value: Air purification systems in quadrant h93 are deactivated
+  - id: D2
+    name: Error
+    depth: 1051
+    extended: false
+    intel: |
+      Warden objective: Additional power needed for Influx Protocol.
+
+      Prisoners sent to :: ERR ###
+    interrupted_communications: |
+      >...Fuck it's dark and creepy here.
+      >...SOMETHING TELLS ME IT CAN ONLY GET WORSE FROM HERE...
+      >...Yeah, enjoy the darkness
+    sectors:
+      - name: High
+        objectives:
+          - kind: Reactor Startup
+  - id: E1
+    name: KDS Deep
+    depth: 984
+    extended: true
+    intel: |
+      React KDS Deep and initiate Influx Protocol.
+    interrupted_communications: |
+      >...Another endless fucking alarm?!
+      >...THERE'S GOTTA BE ANOTHER TERMINAL TO TURN IT OFF!
+      >...Just keep moving, keep looking for the terminal!
+    sectors:
+      - name: High
+        objectives:
+          - kind: Terminal Command
+            metadata:
+              - key: Command
+                value: KDS-DEEP_CRISIS_OVERRIDE
+              - key: CommandDescription
+                value: Synchronously awakens all available KSOs in KDS Deep 1
