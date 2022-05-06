@@ -14,17 +14,19 @@ const (
 type SectorObjectiveKind = string
 
 const (
-	TerminalCommandObjective          SectorObjectiveKind = "Terminal Command"
-	GatherItemsObjective              SectorObjectiveKind = "Gather Items"
-	RetrieveItemObjective             SectorObjectiveKind = "Retrieve Item"
-	RetrieveHSUObjective              SectorObjectiveKind = "Retrieve HSU"
-	DistributePowercellsObjective     SectorObjectiveKind = "Distribute Powercells"
-	ReactorStartupObjective           SectorObjectiveKind = "Reactor Startup"
-	ReactorShutdownObjective          SectorObjectiveKind = "Reactor Shutdown"
-	EstablishUplinkObjective          SectorObjectiveKind = "Establish Uplink"
-	ProcessItemObjective              SectorObjectiveKind = "Process Item"
-	SurviveWardenProtocolObjective    SectorObjectiveKind = "Survive Warden Protocol"
 	ActivateGeneratorClusterObjective SectorObjectiveKind = "Activate Generator Cluster"
+	DistributePowercellsObjective     SectorObjectiveKind = "Distribute Powercells"
+	EstablishUplinkObjective          SectorObjectiveKind = "Establish Uplink"
+	GatherItemsObjective              SectorObjectiveKind = "Gather Items"
+	ProcessItemObjective              SectorObjectiveKind = "Process Item"
+	ReactorShutdownObjective          SectorObjectiveKind = "Reactor Shutdown"
+	ReactorStartupObjective           SectorObjectiveKind = "Reactor Startup"
+	RetrieveHSUObjective              SectorObjectiveKind = "Retrieve HSU"
+	RetrieveItemObjective             SectorObjectiveKind = "Retrieve Item"
+	SurviveWardenProtocolObjective    SectorObjectiveKind = "Survive Warden Protocol"
+	TerminalCommandObjective          SectorObjectiveKind = "Terminal Command"
+	UnknownObjective                  SectorObjectiveKind = "Unknown"
+	UseItem                           SectorObjectiveKind = "Use Item"
 )
 
 type SectorDetails struct {
@@ -34,7 +36,8 @@ type SectorDetails struct {
 }
 
 type SectorObjectiveDetail struct {
-	Kind     SectorObjectiveKind `yaml:"kind"`
+	Kind SectorObjectiveKind `yaml:"kind"`
+	// Kind     string `yaml:"kind"`
 	Metadata []struct {
 		Key   string `yaml:"key"`
 		Value string `yaml:"value"`

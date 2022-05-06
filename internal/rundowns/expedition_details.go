@@ -8,6 +8,7 @@ type ExpeditionDetails struct {
 	Extended                  bool            `yaml:"extended"`
 	InterruptedCommunications string          `yaml:"interrupted_communications"`
 	Sectors                   []SectorDetails `yaml:"sectors"`
+	LocalKeyID                string          `yaml:"local_key_id,omitempty"`
 }
 
 func (e ExpeditionDetails) GetSector(name string) *SectorDetails {

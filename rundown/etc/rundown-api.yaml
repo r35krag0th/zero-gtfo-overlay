@@ -1,3 +1,6 @@
 Name: rundown-api
 Host: 0.0.0.0
 Port: 8889
+RundownDataFiles:
+  - overlay/etc/rundown5.yaml
+  - overlay/etc/rundown6.yaml

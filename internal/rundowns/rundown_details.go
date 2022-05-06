@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/zeromicro/go-zero/core/logx"
 	"gopkg.in/yaml.v3"
 )
 
@@ -51,11 +52,13 @@ func (r RundownDetails) IsExtendedExpedition(id string) (bool, error) {
 
 func LoadFile(filename string) (*RundownDetails, error) {
 	if _, err := os.Stat(filename); err != nil {
+		logx.Errorf("rundown data file does not exist: %s", filename)
 		return nil, err
 	}
 
 	b, err := ioutil.ReadFile(filename)
 	if err != nil {
+		logx.Errorf("failed to read rundown data file %s: %v", filename, err)
 		return nil, err
 	}
 
@@ -65,16 +68,19 @@ func LoadFile(filename string) (*RundownDetails, error) {
 }
 
 func LoadFiles(filenames []string) (map[string]*RundownDetails, []error) {
+	logx.Infof("attempting to load rundown data from %d files", len(filenames))
 	output := make(map[string]*RundownDetails)
 	var errorOutput []error
 	for _, fileName := range filenames {
 		details, err := LoadFile(fileName)
 		if err != nil {
-			errorOutput = append(errorOutput, err)
+			errorOutput = append(errorOutput, fmt.Errorf("failed to load rundown data from %s: %v", fileName, err))
+			logx.Errorf("failed to load rundown data from %s: %v", fileName, err)
 			continue
 		}
 
 		output[strconv.Itoa(details.ID)] = details
+		logx.Infof("loaded rundown data from %s as 'Rundown %d'", fileName, details.ID)
 	}
 	return output, errorOutput
 }
